@@ -22,13 +22,13 @@ export function PortalCard({
                 </div>
             </div>
             <div className="portal-bg flex flex-row p-5">
-                <PortalCoordinate label="x" value={pair.portalOw.x} onChange={v => setSelf(pair.copy({owX: v}))} dimension={Dimension.Overworld} />
-                <PortalCoordinate label="y" value={pair.portalOw.y} onChange={v => setSelf(pair.copy({owY: v}))} dimension={Dimension.Overworld} />
-                <PortalCoordinate label="z" value={pair.portalOw.z} onChange={v => setSelf(pair.copy({owZ: v}))} dimension={Dimension.Overworld} />
+                <PortalCoordinate label="x" value={pair.portalOw.x} conversion={v => v/8 } onChange={v => setSelf(pair.copy({owX: v}))}/>
+                <PortalCoordinate label="y" value={pair.portalOw.y} conversion={v => v} onChange={v => setSelf(pair.copy({owY: v}))}/>
+                <PortalCoordinate label="z" value={pair.portalOw.z} conversion={v => v/8 } onChange={v => setSelf(pair.copy({owZ: v}))}/>
                 <div className="mx-3"></div>
-                <PortalCoordinate label="x" value={pair.portalNe.x} onChange={v => setSelf(pair.copy({neX: v}))} dimension={Dimension.Nether} />
-                <PortalCoordinate label="y" value={pair.portalNe.y} onChange={v => setSelf(pair.copy({neY: v}))} dimension={Dimension.Nether} />
-                <PortalCoordinate label="z" value={pair.portalNe.z} onChange={v => setSelf(pair.copy({neZ: v}))} dimension={Dimension.Nether} />
+                <PortalCoordinate label="x" value={pair.portalNe.x} conversion={v => v*8 } onChange={v => setSelf(pair.copy({neX: v}))}/>
+                <PortalCoordinate label="y" value={pair.portalNe.y} conversion={v => v } onChange={v => setSelf(pair.copy({neY: v}))}/>
+                <PortalCoordinate label="z" value={pair.portalNe.z} conversion={v => v*8 } onChange={v => setSelf(pair.copy({neZ: v}))}/>
             </div>
             <PortalEval pair={pair} allPortals={allPortals} />
         </div>
