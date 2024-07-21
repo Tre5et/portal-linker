@@ -43,10 +43,6 @@ export function PortalEval({
 function calculateErrors(pair: PortalPair, sortedOwNe: PairComparison[], sortedNeOw: PairComparison[]): Error[] {
     const errors: Error[] = [];
 
-    console.log(pair);
-    console.log(sortedOwNe);
-    console.log(sortedNeOw);
-
     for(let p of sortedOwNe) {
         if(p.lOwNe) {
             if(p.pair != pair) {
