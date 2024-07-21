@@ -4,17 +4,28 @@
 
 @layer base {
   :root {
-    --background: rgb(255 251 254);
+    --background: #FFFBFE;
+    --card: #4f4f4f;
     --text: black;
+    --hint: #555555;
+    --success: #227800;
+    --fail: #ab3f00;
+    --portal-gradient: linear-gradient(90deg, rgba(199,251,208,1) 35%, rgba(236,236,236,1) 51%, rgba(241,187,187,1) 65%);
   }
 
   :root.dark {
-    --background: rgb(28 27 31);
+    --background: #1C1B1F;
     --text: white;
+    --hint: #BBBBBB;
+    --portal-gradient: linear-gradient(90deg, rgba(0,74,12,1) 35%, rgba(40,40,40,1) 49%, rgba(68,0,0,1) 65%);
   }
 }
 
 body {
   background-color: var(--background);
   color: var(--text);
+}
+
+.portal-bg {
+    background: var(--portal-gradient);
 }
