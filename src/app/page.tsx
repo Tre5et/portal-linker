@@ -7,8 +7,7 @@ import {PortalPair, OverworldPortal, NetherPortal} from "@/app/_data/Portal";
 
 export default function Home() {
     const [portals, setPortals] = useState<PortalPair[]>([
-        new PortalPair(new OverworldPortal(1000, 0, 0), new NetherPortal(100, 0, 0), "1"),
-        new PortalPair(new OverworldPortal(400, 0, 0), new NetherPortal(50, 0, 0), "1"),
+        new PortalPair(new OverworldPortal(0, 0, 0), new NetherPortal(0, 0, 0), "1"),
     ]);
 
     return (
@@ -23,11 +22,21 @@ export default function Home() {
                                 pair={pair}
                                 allPortals={portals}
                                 setSelf={(newPair) => {
-                                    setPortals(portals.toSpliced(portals.indexOf(pair), 1, newPair));
+                                    if(newPair == null) {
+                                        setPortals(portals.toSpliced(portals.indexOf(pair), 1));
+                                    } else {
+                                        setPortals(portals.toSpliced(portals.indexOf(pair), 1, newPair));
+                                    }
                                 }}
                             />)
                     })
                 }
+                <div className="flex flex-row justify-center w-full">
+                    <div className="flex flex-row items-center bg-card rounded-md text-xl p-2 pr-4 cursor-pointer hover:bg-card-hover select-none" onClick={() => setPortals(portals.toSpliced(portals.length, 0, new PortalPair(new OverworldPortal(0, 0, 0), new NetherPortal(0,0,0), (portals.length + 1).toString())))}>
+                        <span className="material-symbols-rounded">add</span>Add new Portal-Pair
+                    </div>
+                </div>
+
             </div>
 
             <ThemeToggle></ThemeToggle>

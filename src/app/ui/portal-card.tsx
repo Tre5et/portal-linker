@@ -11,13 +11,15 @@ export function PortalCard({
 }: {
     pair: PortalPair,
     allPortals: PortalPair[],
-    setSelf: (portals: PortalPair) => void
+    setSelf: (portals: PortalPair | null) => void
 }) {
     return (
         <div className="flex flex-row items-stretch my-3 rounded-lg overflow-hidden">
             <div className="p-2 bg-card flex flex-col items-center justify-evenly w-36">
-                <h3>Portal Pair:</h3>
                 <input type="text" name="name" className="w-full text-right pr-2" value={pair.name} onChange={(e) => setSelf(pair.copy({name: e.target.value}))}></input>
+                <div className="flex flex-row items-center text-sm cursor-pointer select-none hover:text-fail" onClick={() => setSelf(null)}>
+                    <span className="material-symbols-rounded text-md">delete</span> Delete
+                </div>
             </div>
             <div className="portal-bg flex flex-row p-5">
                 <PortalCoordinate label="x" value={pair.portalOw.x} onChange={v => setSelf(pair.copy({owX: v}))} dimension={Dimension.Overworld} />

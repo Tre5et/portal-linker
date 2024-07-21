@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +8,7 @@
   :root {
     --background: #FFFBFE;
     --card: #4f4f4f;
+    --card-hover: #3f3f3f;
     --text: black;
     --hint: #555555;
     --success: #227800;

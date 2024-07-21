@@ -43,12 +43,16 @@ export function PortalEval({
 function calculateErrors(pair: PortalPair, sortedOwNe: PairComparison[], sortedNeOw: PairComparison[]): Error[] {
     const errors: Error[] = [];
 
+    console.log(pair);
+    console.log(sortedOwNe);
+    console.log(sortedNeOw);
+
     for(let p of sortedOwNe) {
         if(p.lOwNe) {
             if(p.pair != pair) {
                 errors.push(new LinkOwNe(p.pair));
-                break;
             }
+            break;
         } else {
             if(p.pair == pair) {
                 errors.push(new DistanceOwNe());
@@ -61,8 +65,8 @@ function calculateErrors(pair: PortalPair, sortedOwNe: PairComparison[], sortedN
         if (p.lNeOw) {
             if (p.pair != pair) {
                 errors.push(new LinkNeOw(p.pair));
-                break;
             }
+            break;
         } else {
             if (p.pair == pair) {
                 errors.push(new DistanceNeOw());

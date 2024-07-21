@@ -14,6 +14,7 @@ const config: Config = {
         'text': 'var(--text)',
         'hint': 'var(--hint)',
         'card': 'var(--card)',
+        'card-hover': 'var(--card-hover)',
         'success': 'var(--success)',
         'fail': 'var(--fail)',
       }

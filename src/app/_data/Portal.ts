@@ -44,7 +44,7 @@ export class PortalPair {
         const overworldEquivalent = this.portalNe.toOverworld();
 
         return [
-            Math.abs(netherEquivalent.x - other.portalNe.x) <= 16 && Math.abs(netherEquivalent.z - other.portalNe.z) <= 16,
+            Math.abs(Math.floor(netherEquivalent.x) - other.portalNe.x) <= 16 && Math.abs(Math.floor(netherEquivalent.z) - other.portalNe.z) <= 16,
             Math.abs(overworldEquivalent.x - other.portalOw.x) <= 128 && Math.abs(overworldEquivalent.z - other.portalOw.z) <= 128
         ]
     }
