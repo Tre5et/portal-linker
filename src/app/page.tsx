@@ -1,6 +1,5 @@
 'use client';
 
-import {ThemeToggle} from "@/app/ui/theme-toggle";
 import {useState} from "react";
 import {PortalCard} from "@/app/ui/portal-card";
 import {PortalPair, OverworldPortal, NetherPortal} from "@/app/_data/Portal";
@@ -11,9 +10,7 @@ export default function Home() {
     ]);
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <h1>Portal Linker</h1>
-
+        <main className="flex flex-col h-min-full items-center">
             <div>
                 {
                     portals.map((pair) => {
@@ -36,10 +33,7 @@ export default function Home() {
                         <span className="material-symbols-rounded">add</span>Add new Portal-Pair
                     </div>
                 </div>
-
             </div>
-
-            <ThemeToggle></ThemeToggle>
         </main>
     );
 }

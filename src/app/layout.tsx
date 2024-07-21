@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import {Providers} from "@/app/providers";
+import {ThemeToggle} from "@/app/ui/theme-toggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,13 +16,24 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-  return (
-      <html lang="en">
-        <body className={inter.className}>
-          <Providers>
-            {children}
-          </Providers>
-        </body>
-      </html>
+    return (
+        <html lang="en">
+            <body className={inter.className}>
+            <Providers>
+                <div className="flex flex-col justify-between min-h-dvh">
+                    <header className="flex flex-row items-center justify-between border-b-4 border-b-card">
+                        <h1 className="text-3xl font-bold px-4 py-2">Portal Linker</h1>
+                        <div className="flex flex-row items-center py-2 px-4">
+                            <ThemeToggle/>
+                        </div>
+                    </header>
+                    {children}
+                    <footer className="py-2 px-4 mt-5 border-t-2 border-t-card flex flex-row items-center justify-center">
+                        <p>&copy; 2024 by TreSet</p>
+                    </footer>
+                </div>
+            </Providers>
+            </body>
+        </html>
     );
 }
