@@ -11,7 +11,7 @@ export function PortalCard({
 }: {
     pair: PortalPair,
     allPortals: PortalPair[],
-    setSelf: (portals: PortalPair | null) => void
+    setSelf: (portals: PortalPair | null) => void,
 }) {
     return (
         <div className="flex flex-row items-stretch my-3 rounded-lg overflow-hidden">

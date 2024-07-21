@@ -30,7 +30,7 @@ export function PortalEval({
             {
                 (ready) ?
                     (errors?.length > 0) ?
-                        errors.map((e) => <p>{e.message}</p>)
+                        errors.map((e) => <p key={errors?.indexOf(e)}>{e.message}</p>)
                     :
                         <p>Portals are linking!</p>
                 :

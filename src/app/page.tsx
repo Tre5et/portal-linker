@@ -18,6 +18,7 @@ export default function Home() {
                     portals.map((pair) => {
                         return (
                             <PortalCard
+                                key={portals.indexOf(pair)}
                                 pair={pair}
                                 allPortals={portals}
                                 setSelf={(newPair) => {
