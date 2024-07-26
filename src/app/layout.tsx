@@ -3,12 +3,14 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import {Providers} from "@/app/providers";
 import {ThemeToggle} from "@/app/ui/theme-toggle";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Portal Linker",
-    description: "",
+    title: "MC Portals - Portal Linker",
+    description: "Allows you to check if multiple pairs of Minecraft portals link to each other.",
+    icons: "/icon/icon.png"
 };
 
 export default function RootLayout({
@@ -21,8 +23,11 @@ export default function RootLayout({
             <body className={inter.className}>
             <Providers>
                 <div className="flex flex-col justify-between min-h-dvh">
-                    <header className="flex flex-row items-center justify-between border-b-4 border-b-card">
-                        <h1 className="text-3xl font-bold px-4 py-2">Portal Linker</h1>
+                    <header className="flex flex-row items-center justify-between border-b-4 border-b-card px-2">
+                        <div className="flex flex-row items-center">
+                            <Image src="/icon/icon.png" className="inline-block" width={36} height={36} alt="MC Portals - Portal Linker"/>
+                            <span className="text-3xl font-bold px-4 py-2">MC Portals - Portal Linker</span>
+                        </div>
                         <div className="flex flex-row items-center py-2 px-4">
                             <ThemeToggle/>
                         </div>
