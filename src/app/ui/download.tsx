@@ -1,4 +1,5 @@
 import {PortalPair} from "@/app/_data/Portal";
+import {Button} from "@/app/ui/button";
 
 export function Download({
     portals
@@ -17,8 +18,8 @@ export function Download({
     }
 
     return (
-        <div className="flex flex-row items-center bg-card rounded-md p-2 pr-3 cursor-pointer select-none" onClick={download}>
+        <Button onClick={download}>
             <span className="material-symbols-rounded">download</span>Export
-        </div>
+        </Button>
     )
 }

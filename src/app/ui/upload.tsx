@@ -1,5 +1,6 @@
 import {NetherPortal, OverworldPortal, PortalPair} from "@/app/_data/Portal";
 import {useRef, useState} from "react";
+import {Button} from "@/app/ui/button";
 
 export function Upload({
     setPortals
@@ -40,14 +41,9 @@ export function Upload({
 
     return (
         <div className="flex flex-row items-center gap-1">
-            <div
-                className="flex flex-row items-center bg-card rounded-md p-2 pr-3 cursor-pointer select-none"
-                onClick={() => {
-                    fileInput.current?.click();
-                }}
-            >
+            <Button onClick={() => fileInput.current?.click()}>
                 <span className="material-symbols-rounded">upload</span>Import
-            </div>
+            </Button>
             <input
                 type="file"
                 onChange={upload}
@@ -58,15 +54,14 @@ export function Upload({
                 data == null ?
                     <div></div>
                 :
-                    <div
-                        className="bg-card rounded-md p-2 px-3 cursor-pointer select-none"
+                    <Button
                         onClick={() => {
                             setPortals(data)
                             setData(null)
                         }}
                      >
                         Import "{fileInput.current?.files?.item(0)?.name}"
-                    </div>
+                    </Button>
             }
         </div>
     )

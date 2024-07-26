@@ -5,6 +5,7 @@ import {PortalCard} from "@/app/ui/portal-card";
 import {PortalPair, OverworldPortal, NetherPortal} from "@/app/_data/Portal";
 import {Download} from "@/app/ui/download";
 import {Upload} from "@/app/ui/upload";
+import {Button} from "@/app/ui/button";
 
 export default function Home() {
     const [portals, setPortals] = useState<PortalPair[]>([
@@ -41,12 +42,12 @@ export default function Home() {
                             />)
                     })
                 }
-                <div className="flex flex-row justify-center w-full">
-                    <div className="flex flex-row items-center bg-card rounded-md text-xl p-2 pr-4 cursor-pointer hover:bg-card-hover select-none" onClick={() => setPortals(portals.toSpliced(portals.length, 0, new PortalPair(new OverworldPortal(0, 0, 0), new NetherPortal(0,0,0), (portals.length + 1).toString())))}>
+                <div className="flex flex-row justify-center w-full mt-1">
+                    <Button onClick={() => setPortals(portals.toSpliced(portals.length, 0, new PortalPair(new OverworldPortal(0, 0, 0), new NetherPortal(0,0,0), (portals.length + 1).toString())))}>
                         <span className="material-symbols-rounded">add</span>Add new Portal-Pair
-                    </div>
+                    </Button>
                 </div>
-                <div className="flex flex-row items-start justify-center py-5 gap-2">
+                <div className="flex flex-row items-start justify-center py-3 gap-2">
                     <Download portals={portals}/>
                     <Upload setPortals={setPortals}/>
                 </div>

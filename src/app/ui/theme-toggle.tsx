@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react";
+import {Button} from "@/app/ui/button";
 
 export function ThemeToggle({...rest} : React.ComponentPropsWithoutRef<"div">) {
     const { resolvedTheme, setTheme } = useTheme()
@@ -28,14 +29,13 @@ export function ThemeToggle({...rest} : React.ComponentPropsWithoutRef<"div">) {
         <div
             {...rest}
         >
-        <span
-            className="material-symbols-rounded cursor-pointer text-center select-none translate-y-1"
-            onClick={() => resolvedTheme === "dark" ? setTheme("light") : setTheme("dark")}
-            tabIndex={0}
-        >
-            <p className="hidden dark:block">light_mode</p>
-            <p className="block dark:hidden">dark_mode</p>
-        </span>
+            <Button
+                className="material-symbols-rounded text-center bg-transparent hover:bg-transparent py-0 px-0 border-none"
+                onClick={() => resolvedTheme === "dark" ? setTheme("light") : setTheme("dark")}
+            >
+                <p className="hidden dark:block">light_mode</p>
+                <p className="block dark:hidden">dark_mode</p>
+            </Button>
         </div>
     )
 }

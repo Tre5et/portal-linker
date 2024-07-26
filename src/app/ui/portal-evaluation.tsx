@@ -2,6 +2,7 @@ import {PairComparison, PortalPair} from "@/app/_data/Portal";
 import { motion } from "framer-motion";
 import {useEffect, useState} from "react";
 import Collapsible from "react-collapsible";
+import {Button} from "@/app/ui/button";
 
 export function PortalEval({
     pair,
@@ -53,12 +54,14 @@ export function PortalEval({
                                         :
                                         <p>Portals are linking!</p>
                                 }
-                                <motion.span
-                                    initial={{rotate: 90, translateY: "0.05rem"}}
-                                    animate={{rotate: open ? 0 : 90}}
-                                    className="text-3xl material-symbols-rounded select-none absolute right-0 cursor-pointer"
-                                >expand_more
-                                </motion.span>
+                                <Button onClick={() => setOpen(!open)} className="bg-transparent hover:bg-transparent py-0 px-0 border-none text-3xl absolute right-0">
+                                    <motion.span
+                                        initial={{rotate: 90, translateY: "0.05rem"}}
+                                        animate={{rotate: open ? 0 : 90}}
+                                        className="material-symbols-rounded"
+                                    >expand_more
+                                    </motion.span>
+                                </Button>
                             </div>
                             :
                             <p>Loading...</p>
