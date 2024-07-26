@@ -24,6 +24,7 @@
     --hint: #BBBBBB;
     --success: #227800;
     --fail: #ab3f00;
+    --error: #ff5555;
     --portal-gradient: linear-gradient(90deg, rgba(0,74,12,1) 35%, rgba(40,40,40,1) 49%, rgba(68,0,0,1) 65%);
   }
 }

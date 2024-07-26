@@ -17,6 +17,7 @@ const config: Config = {
         'card-hover': 'var(--card-hover)',
         'success': 'var(--success)',
         'fail': 'var(--fail)',
+        'error': 'var(--error)',
       }
     },
   },
