@@ -20,8 +20,8 @@ export function PortalEval({
     }, [pair, allPortals])
 
     useEffect(() => {
-        setSortedOwNe(distances.toSorted((a, b) => a.dOwNe - b.dOwNe));
-        setSortedNeOW(distances.toSorted((a, b) => a.dNeOw - b.dNeOw));
+        setSortedOwNe(distances.toSorted((a, b) => a.distNether - b.distNether));
+        setSortedNeOW(distances.toSorted((a, b) => a.distOverworld - b.distOverworld));
     }, [distances]);
 
     const [errors, setErrors] = useState<Error[] | null>(null);
@@ -85,9 +85,9 @@ export function PortalEval({
                             distances.map((p) => {
                                 return (
                                     <tr key={distances.indexOf(p)} className="border-t border-dashed text-right">
-                                        <td className={`border-r border-text px-2 ${p.lNeOw || p.lOwNe || "italic text-hint line-through"}`} title={p.lNeOw || p.lOwNe ? "" : "Out of Detection Radius"}>{p.pair.name}</td>
-                                        <td className={`border-r border-text px-2 ${p.lNeOw || "italic text-hint line-through"}`} title={p.lNeOw ? "" : "Out of Detection Radius (> 128 Blocks x/z)"}>{Math.round(p.dNeOw * 100) / 100}</td>
-                                        <td className={`px-2 border-text ${p.lOwNe || "italic text-hint line-through"}`} title={p.lOwNe ? "" : "Out of Detection Radius (> 16 Blocks x/z)"}>{Math.round(p.dOwNe * 100) / 100}</td>
+                                        <td className={`border-r border-text px-2 ${p.inRangeOverworld || p.inRangeNether || "italic text-hint line-through"}`} title={p.inRangeOverworld || p.inRangeNether ? "" : "Out of Detection Radius"}>{p.pair.name}</td>
+                                        <td className={`border-r border-text px-2 ${p.inRangeOverworld || "italic text-hint line-through"}`} title={p.inRangeOverworld ? "" : "Out of Detection Radius (> 128 Blocks x/z)"}>{Math.round(p.distOverworld * 100) / 100}</td>
+                                        <td className={`px-2 border-text ${p.inRangeNether || "italic text-hint line-through"}`} title={p.inRangeNether ? "" : "Out of Detection Radius (> 16 Blocks x/z)"}>{Math.round(p.distNether * 100) / 100}</td>
                                     </tr>
                                 )
                             })
@@ -104,7 +104,7 @@ function calculateErrors(pair: PortalPair, sortedOwNe: PairComparison[], sortedN
     const errors: Error[] = [];
 
     for(let p of sortedOwNe) {
-        if(p.lOwNe) {
+        if(p.inRangeNether) {
             if(p.pair != pair) {
                 errors.push(new LinkOwNe(p.pair));
             }
@@ -118,7 +118,7 @@ function calculateErrors(pair: PortalPair, sortedOwNe: PairComparison[], sortedN
     }
 
     for(let p of sortedNeOw) {
-        if (p.lNeOw) {
+        if (p.inRangeOverworld) {
             if (p.pair != pair) {
                 errors.push(new LinkNeOw(p.pair));
             }

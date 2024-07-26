@@ -14,10 +14,10 @@ export class PortalPair {
         const [lOwNe, lNeOw] = this.isInRange(other);
         return {
             pair: other,
-            dOwNe,
-            dNeOw,
-            lOwNe,
-            lNeOw
+            distNether: dOwNe,
+            distOverworld: dNeOw,
+            inRangeNether: lOwNe,
+            inRangeOverworld: lNeOw
         }
     }
 
@@ -114,8 +114,8 @@ export enum Dimension {
 
 export type PairComparison = {
     pair: PortalPair,
-    dOwNe: number,
-    dNeOw: number,
-    lOwNe: boolean,
-    lNeOw: boolean,
+    distNether: number,
+    distOverworld: number,
+    inRangeNether: boolean,
+    inRangeOverworld: boolean,
 }
