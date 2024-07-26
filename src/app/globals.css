@@ -13,7 +13,11 @@
     --hint: #555555;
     --success: #8fcf76;
     --fail: #f0965d;
-    --portal-gradient: linear-gradient(90deg, rgba(199,251,208,1) 35%, rgba(236,236,236,1) 51%, rgba(241,187,187,1) 65%);
+    --overworld: #c7fbd0;
+    --nether: #f1bbbb;
+    --center: #ececec;
+    --portal-gradient: linear-gradient(90deg, var(--overworld) 35%, var(--center) 51%, var(--nether) 65%);
+    --hint-gradient: radial-gradient(closest-side, rgba(0,74,12,1) 0%, var(--background) 80%);
   }
 
   :root.dark {
@@ -24,8 +28,9 @@
     --hint: #BBBBBB;
     --success: #227800;
     --fail: #ab3f00;
-    --error: #ff5555;
-    --portal-gradient: linear-gradient(90deg, rgba(0,74,12,1) 35%, rgba(40,40,40,1) 49%, rgba(68,0,0,1) 65%);
+    --overworld: #004a0c;
+    --nether: #440000;
+    --center: #282828;
   }
 }
 
@@ -35,5 +40,31 @@ body {
 }
 
 .portal-bg {
-    background: var(--portal-gradient);
+  background: var(--portal-gradient);
+}
+
+.dimension-hint {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nether {
+  --dim-color: var(--nether);
+}
+
+.overworld {
+  --dim-color: var(--overworld);
+}
+
+.dimension-hint::after {
+  width: 23rem;
+  height: 10rem;
+  background: radial-gradient(closest-side, var(--dim-color) 0%, var(--background) 100%);
+  content: '';
+  position: absolute;
+  top: -3rem;
+  z-index: -1;
 }

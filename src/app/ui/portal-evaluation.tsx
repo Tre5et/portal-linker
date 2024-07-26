@@ -70,11 +70,11 @@ export function PortalEval({
                 transitionTime={100}
             >
                 <table className="mb-2">
-                    <thead className="border-double border-b-4">
+                    <thead className="border-double border-text border-b-4">
                         <tr>
-                            <th className="border-r px-2 align-bottom leading-tight">Portal</th>
-                            <th className="border-r px-2 align-bottom leading-tight">Distance Overworld</th>
-                            <th className="px-2 align-bottom leading-tight">Distance Nether</th>
+                            <th className="border-r border-text px-2 align-bottom leading-tight">Portal</th>
+                            <th className="border-r border-text px-2 align-bottom leading-tight">Distance Overworld</th>
+                            <th className="px-2 border-text align-bottom leading-tight">Distance Nether</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,9 +82,9 @@ export function PortalEval({
                             distances.map((p) => {
                                 return (
                                     <tr key={distances.indexOf(p)} className="border-t border-dashed text-right">
-                                        <td className={`border-r px-2 ${p.lNeOw || p.lOwNe || "italic text-hint line-through"}`} title={p.lNeOw || p.lOwNe ? "" : "Out of Detection Radius"}>{p.pair.name}</td>
-                                        <td className={`border-r px-2 ${p.lNeOw || "italic text-hint line-through"}`} title={p.lNeOw ? "" : "Out of Detection Radius (> 128 Blocks x/z)"}>{Math.round(p.dNeOw * 100) / 100}</td>
-                                        <td className={`px-2 ${p.lOwNe || "italic text-hint line-through"}`} title={p.lOwNe ? "" : "Out of Detection Radius (> 16 Blocks x/z)"}>{Math.round(p.dOwNe * 100) / 100}</td>
+                                        <td className={`border-r border-text px-2 ${p.lNeOw || p.lOwNe || "italic text-hint line-through"}`} title={p.lNeOw || p.lOwNe ? "" : "Out of Detection Radius"}>{p.pair.name}</td>
+                                        <td className={`border-r border-text px-2 ${p.lNeOw || "italic text-hint line-through"}`} title={p.lNeOw ? "" : "Out of Detection Radius (> 128 Blocks x/z)"}>{Math.round(p.dNeOw * 100) / 100}</td>
+                                        <td className={`px-2 border-text ${p.lOwNe || "italic text-hint line-through"}`} title={p.lOwNe ? "" : "Out of Detection Radius (> 16 Blocks x/z)"}>{Math.round(p.dOwNe * 100) / 100}</td>
                                     </tr>
                                 )
                             })

@@ -13,6 +13,14 @@ export default function Home() {
 
     return (
         <main className="flex flex-col h-min-full items-center">
+            <div className="pl-36 pr-80 w flex flex-row items-center justify-around w-card">
+                <div className="dimension-hint overworld text-lg text-hint">
+                    Overworld Coordinates
+                </div>
+                <div className="dimension-hint nether text-lg text-hint">
+                    Nether Coordinates
+                </div>
+            </div>
             <div>
                 {
                     portals.map((pair) => {

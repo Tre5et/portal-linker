@@ -18,6 +18,9 @@ const config: Config = {
         'success': 'var(--success)',
         'fail': 'var(--fail)',
         'error': 'var(--error)',
+      },
+      width: {
+        'card': '75rem'
       }
     },
   },
