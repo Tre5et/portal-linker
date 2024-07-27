@@ -6,6 +6,7 @@ import {PortalPair, OverworldPortal, NetherPortal} from "@/app/_data/Portal";
 import {Download} from "@/app/ui/download";
 import {Upload} from "@/app/ui/upload";
 import {Button} from "@/app/ui/button";
+import {Logging} from "@/app/ui/logging";
 
 export default function Home() {
     const [portals, setPortals] = useState<PortalPair[]>([
@@ -14,6 +15,7 @@ export default function Home() {
 
     return (
         <main className="flex flex-col h-min-full items-center">
+            <Logging/>
             <div className="pl-36 pr-80 w flex flex-row items-center justify-around w-card">
                 <div className="dimension-hint overworld text-lg text-hint">
                     Overworld Coordinates
