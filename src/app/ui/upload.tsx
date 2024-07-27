@@ -60,7 +60,7 @@ export function Upload({
                             setData(null)
                         }}
                      >
-                        Import "{fileInput.current?.files?.item(0)?.name}"
+                        Import &quot;{fileInput.current?.files?.item(0)?.name}&quot;
                     </Button>
             }
         </div>
