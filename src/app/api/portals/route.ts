@@ -34,7 +34,7 @@ export function POST(
             }
         });
 
-        return NextResponse.json(JSON.stringify(result));
+        return NextResponse.json(result);
     })
     .catch((error) => {
         return new NextResponse('Error parsing JSON: ' + error, { status: 400 });
