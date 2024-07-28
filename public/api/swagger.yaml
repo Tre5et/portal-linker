@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: MCPortals Portal Linker API
+  description: |-
+    Allows checking Minecraft portal linking.
+  license:
+    name: GPLv3
+    url: https://www.gnu.org/licenses/gpl-3.0.en.html
+  version: 0.1.0
+servers:
+  - url: https://mcportals.nAet/api
+paths:
+  /portals:
+    post:
+      tags:
+        - api
+      summary: Check multiple portal links
+      operationId: api
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiRequest'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkResponse'
+        '400':
+          description: Invalid request
+          content:
+            string:
+              example: 'Error parsing JSON: Unexpected Token '
+components:
+  schemas:
+    ApiRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/PortalPair'
+
+    LinkResponse:
+      type: array
+      items:
+        type: object
+        description: Portal pair with link status
+        properties:
+          pair:
+            $ref: '#/components/schemas/PortalPair'
+          linksNether:
+            type: boolean
+            description: Whether the portal pair links when going from the overworld to the nether
+          linksOverworld:
+            type: boolean
+            description: Whether the portal pair links when going from the nether to the overworld
+          evaluation:
+            type: array
+            description: The distance evaluation of the portal pair
+            items:
+              type: object
+              properties:
+                pair:
+                  $ref: '#/components/schemas/PortalPair'
+                distNether:
+                  type: number
+                  description: The distance between the ideal location of the overworld portal of the current portal pair (`pair`) and the nether portal of the evaluated portal (`evaluation.pair`) in the nether
+                distOverworld:
+                  type: number
+                  description: The distance between the ideal location of the nether portal of the current portal pair (`pair`) and the overworld portal of the evaluated portal (`evaluation.pair`) in the overworld
+                inRangeNether:
+                  type: boolean
+                  description: Whether the nether portal of the evaluated portal (`evaluation.pair`) is in range (16 blocks) of the ideal location of the overworld portal of the current portal pair (`pair`)
+                inRangeOverworld:
+                    type: boolean
+                    description: Whether the overworld portal of the evaluated portal (`evaluation.pair`) is in range (128 blocks) of the ideal location of the nether portal of the current portal pair (`pair`)
+
+    PortalPair:
+      type: object
+      description: A pair of a nether and an overworld portal that should be linked
+      properties:
+        name:
+          type: string
+          description: The name of the portal pair
+        portalOw:
+          $ref: '#/components/schemas/PortalCoordinates'
+        portalNe:
+          $ref: '#/components/schemas/PortalCoordinates'
+
+
+    PortalCoordinates:
+      type: object
+      description: The coordinates of a portal
+      properties:
+        x:
+          type: integer
+          description: The x coordinate of the portal
+        y:
+          type: integer
+          description: The y coordinate of the portal
+        z:
+          type: integer
+          description: The z coordinate of the portal
