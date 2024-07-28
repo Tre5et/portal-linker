@@ -24,13 +24,13 @@ export default function RootLayout({
             <body className={inter.className}>
             <Providers>
                 <div className="flex flex-col justify-between min-h-dvh">
-                    <header className="flex flex-row items-center justify-between border-b-4 border-b-card px-2">
+                    <header className="flex flex-row items-center justify-between border-b border-b-card px-2">
                         <Link
                             href="/"
                             className="flex flex-row items-center"
                         >
-                            <Image src="/icon/icon.png" className="inline-block" width={36} height={36} alt="MC Portals - Portal Linker"/>
-                            <span className="text-3xl font-bold px-4 py-2">MC Portals - Portal Linker</span>
+                            <Image src="/icon/icon.png" className="inline-block rounded-md" width={36} height={36} alt="MC Portals - Portal Linker"/>
+                            <span className="text-xl font-semibold px-4 py-2">MC Portals - Portal Linker</span>
                         </Link>
                         <div className="flex flex-row items-center py-2 px-4 gap-6">
                             <Link
@@ -40,7 +40,7 @@ export default function RootLayout({
                         </div>
                     </header>
                     {children}
-                    <footer className="py-2 px-4 mt-5 border-t-2 border-t-card flex flex-row items-center justify-center">
+                    <footer className="py-2 px-4 mt-5 border-t border-t-card flex flex-row items-center justify-center">
                         <p>&copy; 2024 by TreSet</p>
                     </footer>
                 </div>
