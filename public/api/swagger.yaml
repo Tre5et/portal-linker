@@ -6,16 +6,16 @@ info:
   license:
     name: GPLv3
     url: https://www.gnu.org/licenses/gpl-3.0.en.html
-  version: 0.1.0
+  version: 1.0.0
 servers:
-  - url: https://mcportals.nAet/api
+  - url: https://mcportals.net/api
 paths:
   /portals:
     post:
       tags:
-        - api
+        - portals
       summary: Check multiple portal links
-      operationId: api
+      operationId: portals
       requestBody:
         required: true
         content:

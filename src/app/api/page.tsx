@@ -3,8 +3,9 @@
 import SwaggerUI from "swagger-ui-react";
 import "swagger-ui-react/swagger-ui.css";
 import {useTheme} from "next-themes";
-import "/swagger-dark.css"
+import "./swagger-dark.css"
 import {useEffect, useState} from "react";
+import {Logging} from "@/app/ui/logging";
 
 export default function Api() {
     const { resolvedTheme} = useTheme()
@@ -18,6 +19,7 @@ export default function Api() {
     }
 
     return <div className={`${resolvedTheme == "dark" && "swagger-dark"}`}>
+        <Logging/>
         <SwaggerUI
             url="/api/swagger.yaml"
         />
