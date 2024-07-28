@@ -22,3 +22,23 @@ export function Button({
         </button>
     );
 }
+
+export function TransparentButton({
+  children,
+  onClick,
+  className,
+  disabled = false,
+
+}: Readonly<{
+  children: React.ReactNode;
+  onClick: () => void;
+  className?: string;
+  disabled?: boolean;
+
+}>) {
+    return <Button
+        onClick={onClick}
+        className={`bg-transparent hover:bg-transparent border-transparent p-0 m-0 ${className ?? ""}`}
+        disabled={disabled}
+    >{children}</Button>
+}
